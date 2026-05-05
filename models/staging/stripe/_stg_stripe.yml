@@ -2,11 +2,13 @@ models:
   - name: stg_stripe__payments
     columns:
       - name: payment_id
+        description: primary key
         data_tests:
           - unique
           - not_null
           
       - name: order_id
+        description: foreign key
         data_tests:
           - not_null
           - relationships:
@@ -15,6 +17,7 @@ models:
                 field: order_id
 
       - name: payment_method
+        description: Payment Method Used
         data_tests:
           - accepted_values:
               arguments: 
@@ -27,6 +30,7 @@ models:
                   - pix
 
       - name: payment_status
+        description: Payment Status 
         data_tests:
           - accepted_values:
               arguments: 

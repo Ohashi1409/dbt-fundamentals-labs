@@ -13,4 +13,36 @@ sources:
     #     loaded_at_field: _etl_loaded_at
     tables:
       - name: payment
+        columns:
+          - name: id
+            description: primary key
+            data_tests:
+              - not_null
+              - unique
+          
+          - name: orderid
+            description: Order Id
+            data_tests:
+              - not_null
+
+          - name: paymentmethod
+            description: Payment Method Used
+            data_tests:
+              - accepted_values:
+                  arguments: 
+                    values:
+                      - bank_transfer
+                      - coupon
+                      - gift_card
+                      - credit_card
+                      - debit_card
+                      - pix
         
+          - name: status
+            description: Payment Status 
+            data_tests:
+              - accepted_values:
+                  arguments: 
+                    values:
+                      - fail
+                      - success

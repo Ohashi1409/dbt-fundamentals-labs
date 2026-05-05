@@ -13,4 +13,35 @@ sources:
     #   loaded_at_field: _etl_loaded_at
     tables:
       - name: customers
+        columns:
+          - name: id
+            description: primary key
+            data_tests:
+              - not_null
+              - unique
+
       - name: orders
+        columns: 
+          - name: id
+            description: primary key
+            data_tests:
+              - not_null
+              - unique
+          
+          - name: user_id
+            description: Customer Id
+            data_tests:
+              - not_null
+          
+          - name: status
+            description: order status
+            data_tests:
+              - accepted_values:
+                  arguments: 
+                    values:
+                      - completed
+                      - return_pending
+                      - returned
+                      - shipped
+                      - placed
+                  
