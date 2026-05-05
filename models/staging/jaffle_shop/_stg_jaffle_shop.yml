@@ -1,5 +1,6 @@
 models:
   - name: stg_jaffle_shop__customers
+    description: This model serves as a staging table for customer data from the 'jaffle_shop' source. It provides a structured format for customer information, including unique identifiers and names, to be used in downstream models.
     columns:
       - name: customer_id
         description: primary key
@@ -7,7 +8,13 @@ models:
           - unique
           - not_null
         
+      - name: first_name
+        description: The first name of the customer.
+      - name: last_name
+        description: The last name of the customer.
+
   - name: stg_jaffle_shop__orders
+    description: This model provides a staging layer for order data from the Jaffle Shop, transforming and preparing it for further analysis. It includes details about each order, such as the order ID, customer ID, order date, and status.
     columns:
       - name: order_id
         description: primary key
@@ -25,7 +32,7 @@ models:
                 field: customer_id
 
       - name: status
-        description: order status
+        description: "{{ doc('order_status') }}"
         data_tests:
           - accepted_values:
               arguments: 
@@ -35,3 +42,6 @@ models:
                   - returned
                   - shipped
                   - placed
+                  
+      - name: order_date
+        description: The date when the order was placed.

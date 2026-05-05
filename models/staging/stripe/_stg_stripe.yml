@@ -1,5 +1,6 @@
 models:
   - name: stg_stripe__payments
+    description: This model processes and transforms raw payment data from Stripe, providing a structured view of payment transactions. It includes details such as payment methods, statuses, and amounts, facilitating analysis of payment trends and performance.
     columns:
       - name: payment_id
         description: primary key
@@ -17,7 +18,7 @@ models:
                 field: order_id
 
       - name: payment_method
-        description: Payment Method Used
+        description: "{{ doc('payment_method') }}"
         data_tests:
           - accepted_values:
               arguments: 
@@ -30,7 +31,7 @@ models:
                   - pix
 
       - name: payment_status
-        description: Payment Status 
+        description: "{{ doc('payment_status') }}"
         data_tests:
           - accepted_values:
               arguments: 
@@ -38,3 +39,9 @@ models:
                   - fail
                   - success
             
+      - name: payment_amount
+        description: Total amount of the payment transaction, converted to a standard currency unit.
+      - name: payment_created
+        description: Date when the payment was created.
+      - name: _batched_at
+        description: Timestamp indicating when the data was last batched.
