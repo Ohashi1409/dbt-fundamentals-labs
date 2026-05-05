@@ -1,0 +1,11 @@
+# you shouldn't commit these into source control
+# these are the default directory names, adjust/add to fit your needs
+target/
+dbt_packages/
+logs/
+dbt_internal_packages/
+<<<<<<< HEAD
+*-lock.yml
+=======
+*-lock.yml
+>>>>>>> 83ad44f6552eba4154ed41906c101923769b669b
