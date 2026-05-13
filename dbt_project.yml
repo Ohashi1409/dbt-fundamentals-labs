@@ -44,3 +44,6 @@ models:
       +materialized: view
     marts:
       +materialized: table
+    # Learnig the use of models as a package
+    snowflake_spend:
+      +enabled: true
