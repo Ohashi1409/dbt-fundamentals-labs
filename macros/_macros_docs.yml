@@ -1,0 +1,10 @@
+macros:
+  - name: cents_to_dollars
+    description: A macro that converts a numeric field from cents to dollars, and rounds it to input decimals, with 2 beign the default value 
+    arguments:
+      - name: column_name
+        type: string
+        description: The name of the column you want to convert
+      - name: decimals
+        type: integer
+        description: The numeric value that indicates how much the macro should round, with 2 as default
